@@ -29,7 +29,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     bio = models.TextField(null=True)
-    full_name = models.CharField(max_length=20000, null=True)
+    full_name = models.CharField(max_length=200, null=True)
     birth_date = models.DateField(null=True)
 
     USERNAME_FIELD = 'phone'
