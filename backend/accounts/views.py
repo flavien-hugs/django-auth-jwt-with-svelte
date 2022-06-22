@@ -11,7 +11,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from accounts.models.users import User
-from acounts.renderers import UserJSONRenderer
+from accounts.renderers import UserJSONRenderer
 from accounts.serializers import (
     LogoutSerializer,
     UserLoginSerializer,
@@ -64,7 +64,7 @@ class UserRetrieveUpdateAPIView(RetrieveUpdateAPIView):
     # renderer_classes = (UserJSONRenderer,)
     serializer_class = UserSerializer
 
-    def retrieve(self, request: Request, *args: dict[str, Any], **kwargs: dict[str, Any]) -> Response:
+    def retrieve(self, request: Request, *args, **kwargs) -> Response:
         """
         Return user on GET request.
         """
@@ -73,7 +73,7 @@ class UserRetrieveUpdateAPIView(RetrieveUpdateAPIView):
 
         return Response(serializer.data, status=status.HTTP_200_OK)
 
-    def update(self, request: Request, *args: dict[str, Any], **kwargs: dict[str, Any]) -> Response:
+    def update(self, request: Request, *args, **kwargs) -> Response:
         """
         Return updated user.
         """

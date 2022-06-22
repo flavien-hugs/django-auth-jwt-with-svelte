@@ -13,7 +13,7 @@ class UserJSONRenderer(JSONRenderer):
 
     def render(
         self,
-        data: dict[str, Any],
+        data,
         media_type: Optional[str] = None,
         renderer_context: Optional[Mapping[str, Any]] = None,
     ) -> str:

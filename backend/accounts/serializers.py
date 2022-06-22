@@ -15,7 +15,8 @@ class UserRegistrationSerializer(
     """
 
     password = serializers.CharField(
-        max_length=120, min_lenth=9,
+        max_length=120, min_length=9,
+        style={'input_type': 'password'},
         write_only=True
     )
 
@@ -44,7 +45,11 @@ class UserRegistrationSerializer(
 
 class UserLoginSerializer(serializers.ModelSerializer[User]):
     phone = serializers.CharField(max_length=255)
-    password = serializers.CharField(max_length=128, write_only=True)
+    password = serializers.CharField(
+        max_length=128,
+        style={'input_type': 'password'},
+        write_only=True
+    )
     is_staff = serializers.BooleanField(read_only=True)
 
     tokens = serializers.SerializerMethodField()
@@ -104,7 +109,9 @@ class UserSerializer(serializers.ModelSerializer[User]):
     """
 
     password = serializers.CharField(
-        max_length=128, min_length=8, write_only=True
+        max_length=128, min_length=8,
+        style={'input_type': 'password'},
+        write_only=True
     )
 
     class Meta:

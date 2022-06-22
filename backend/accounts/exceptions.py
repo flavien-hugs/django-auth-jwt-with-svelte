@@ -6,10 +6,7 @@ from rest_framework.response import Response
 from rest_framework.views import exception_handler
 
 
-def core_exception_handler(
-    exc: Exception,
-    context: dict[str, Any]
-) -> Optional[Response]:
+def core_exception_handler(exc: Exception, context) -> Optional[Response]:
     response = exception_handler(exc, context)
     handlers = {'ValidationError': _handle_generic_error}
 
@@ -22,8 +19,7 @@ def core_exception_handler(
 
 
 def _handle_generic_error(
-    exc: Exception,
-    context: dict[str, Any],
+    exc: Exception, context,
     response: Optional[Response]
 ) -> Optional[Response]:
 
