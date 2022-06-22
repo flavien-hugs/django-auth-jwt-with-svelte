@@ -88,7 +88,7 @@ class UserRetrieveUpdateAPIView(RetrieveUpdateAPIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
-user_retrieve_update_api_view = UserRetrieveUpdateAPIView.as_view()
+user_retrieve_view = UserRetrieveUpdateAPIView.as_view()
 
 
 class LogoutAPIView(APIView):
@@ -107,4 +107,4 @@ class LogoutAPIView(APIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
-logout_api_view = LogoutAPIView.as_view()
+logout_view = LogoutAPIView.as_view()
